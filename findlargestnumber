@@ -1,0 +1,21 @@
+2000H:   0500H   15H                                           2000H:0501H10H
+2000H:   0502H   25H                                           2000H:0503H8EH
+2000H:   0504H   02H                                           2000H:0505H09H
+2000H:   0506H   50H                                           2000H:0507H18H
+2000H:   5008H   12H                                           2000H:0509H48H
+2000H:   050AH   2BH                                           2000H:050BH56H
+2000H:   050CH   32H                                           2000H:050DH73H
+2000H:   050EH   46H                                           2000H:050FH24H
+
+MOV AX,2000H
+MOV DS,AX
+MOV SI,0500H
+MOV CL,16
+MOV AL,[SI]
+AGAIN: CMP AL,[SI+1]
+JGE  NEXT
+MOV AL,[SI+1]
+NEXT:INC SI
+DEC CL
+JNZ AGAIN
+HLT
